@@ -1,0 +1,50 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Layaravindam</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body align="center">
+    <style>
+    body {
+        padding: 40px 100px;
+        background-color: #252323;
+        color: #fff;
+    }
+
+
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    </style>
+    <div class="container">
+      <form method="post" action="default">
+        <div class="form-group">
+          <button class="btn btn-success" name="btn" value="default" tabIndex="5" style="width:470px;height:100px;font-size:28px;" href="/default"> Default patterns </button>
+        </div>
+      </form>
+      <form method="post" action="custom">
+        <div class="form-group">
+          <button class="btn btn-success" name="btn" value="custom" tabIndex="5" style="width:470px;height:100px;font-size:28px;" href="/custom" > Custom patterns </button>
+        </div>
+      </form>
+
+
+    <script type="text/javascript">
+    $(document).on('keypress', 'input,select', function (e) {
+        if (e.which == 13) {
+            var $next = $('[tabIndex=' + (+this.tabIndex + 1) + ']');
+            console.log($next.length);
+            if (!$next.length) {
+           $next = $('[tabIndex=1]');        }
+            $next.focus() .click();
+        }
+    });
+    </script>
+    </div>
+  </body>
+</html>

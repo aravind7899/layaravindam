@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>result page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body align="left">
+    <style>
+
+    div:hover:before{
+      position: absolute;
+      left: 350px;
+      content: attr(title);
+      font-size: 20px;
+      margin:2px;
+      color:blue;
+      border-style: hidden;
+    }
+
+    body {
+      padding: 40px 100px;
+      background-color: #252323;
+      color: #fff;
+      zoom: 170%;
+     }
+
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+     }
+
+  </style>
+  <body>
+    <h1>{{ result }}<h1>
+  </body>
+</html>

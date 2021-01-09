@@ -1,0 +1,41 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Layaravindam</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="font-size:28px;">
+    <style>
+    body {
+        padding: 40px 100px;
+        background-color: #252323;
+        color: #fff;
+    }
+
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    </style>
+    Layaravindam is a Korvai(Mukthai) akshara calculator application.<br>
+    This application consists of default patterns and custom patterns which the user can define.<br>
+    The defaault patterns consists of chaturasram,trisram,khandam,misram based patterns and chatusram and trisram combination patterns.<br>
+    The custom patterns has two option.The first set gives only korvai(mukthai) aksharas.The second pattern is defined with uttarnagam and gives a few comination of puravangam and uttarangam aksharas for that particular patterm.<br>
+    This repo consists consists of the source code which is built using python flask as backend and html,css,javascript as frontend. This application is deployed on Heroku cloud.<br>
+    <script type="text/javascript">
+    $(document).on('keypress', 'input,select', function (e) {
+        if (e.which == 13) {
+            var $next = $('[tabIndex=' + (+this.tabIndex + 1) + ']');
+            console.log($next.length);
+            if (!$next.length) {
+           $next = $('[tabIndex=1]');        }
+            $next.focus() .click();
+        }
+    });
+
+    </script>
+  </body>
+</html>

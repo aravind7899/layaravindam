@@ -1,0 +1,37 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Layaravindam</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <style>
+    html,body {
+        padding: 10px 10px;
+        margin: 0px;
+        background-color: #252323;
+        color: #fff;
+    }
+    a{
+      padding: 10px 10px;
+      margin: 2px;
+    }
+    </style>
+
+    <a href="/home.html" target='frame2' style="font-size:26px">Home</a></td><td colspan='2'><a href="/about.html" target='frame2' style="font-size:26px">About</a>
+
+    <script type="text/javascript">
+    $(document).on('keypress', 'input,select', function (e) {
+        if (e.which == 13) {
+            var $next = $('[tabIndex=' + (+this.tabIndex + 1) + ']');
+            console.log($next.length);
+            if (!$next.length) {
+           $next = $('[tabIndex=1]');        }
+            $next.focus() .click();
+        }
+    });
+    </script>
+  </body>
+</html>

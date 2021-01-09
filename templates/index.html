@@ -1,0 +1,35 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Layaravindam</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body align="center">
+    <style>
+
+    html, body {
+    background-color: #252323;
+    color: #fff;
+    }
+
+    </style>
+
+      <iframe src="{{ url_for('nav') }}" name="frame1" height='10%' width='100%' frameborder='no'></iframe>
+      <iframe src="{{ url_for('home') }}" name="frame2" height='90%' width='100%' frameborder='no' ></iframe>
+
+    <script type="text/javascript">
+    $(document).on('keypress', 'input,select', function (e) {
+        if (e.which == 13) {
+            var $next = $('[tabIndex=' + (+this.tabIndex + 1) + ']');
+            console.log($next.length);
+            if (!$next.length) {
+           $next = $('[tabIndex=1]');        }
+            $next.focus() .click();
+        }
+    });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <style>
+    body {
+        padding: 40px 100px;
+        background-color: #252323;
+        color: #fff;
+        font-size: 30px;
+    }
+
+
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    </style>
+    <div class="container">
+      In these Custom patterns ,there are two options<br><br>
+      <li>First gives korvai(mukthai) aksharas with the pattern</li><br>
+      <li>Second, gives a few purvangam and uttarangam aksharas for the pattern</li><br>
+      <h3>Pattern definition examples are given in each option</h3><br><br>
+      <form method="post" action="custom/simple">
+        <div class="form-group">
+          <button class="btn btn-success" name="btn" value="default" tabIndex="5" style="width:470px;height:100px;font-size:26px;" href="/simple"> Custom patterns 1 </button>
+        </div>
+      </form>
+      <form method="post" action="custom/complex">
+        <div class="form-group">
+          <button class="btn btn-success" name="btn" value="custom" tabIndex="5" style="width:470px;height:100px;font-size:26px;" href="/complex" > Custom patterns 2 </button>
+        </div>
+      </form>
+
+    <script type="text/javascript">
+    $(document).on('keypress', 'input,select', function (e) {
+        if (e.which == 13) {
+            var $next = $('[tabIndex=' + (+this.tabIndex + 1) + ']');
+            console.log($next.length);
+            if (!$next.length) {
+           $next = $('[tabIndex=1]');        }
+            $next.focus() .click();
+        }
+    });
+    </script>
+    </div>
+  </body>
+</html>
