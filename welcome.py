@@ -57,23 +57,23 @@ def custom_htm():
 
 @app.route('/default/chaturasram',methods=["POST"])
 def chaturasram():
-    return render_template("chaturasram.html")
+    return render_template("default_patterns.html")
 
 @app.route('/default/trisram',methods=["POST"])
 def trisram():
-    return render_template("trisram.html")
+    return render_template("default_patterns.html")
 
 @app.route('/default/khandam',methods=["POST"])
 def khandam():
-    return render_template("khandam.html")
+    return render_template("default_patterns.html")
 
 @app.route('/default/misram',methods=["POST"])
 def misram():
-    return render_template("misram.html")
+    return render_template("default_patterns.html")
 
 @app.route('/default/2t1c',methods=["POST"])
 def t2c1():
-    return render_template("2t1c.html")
+    return render_template("default_patterns.html")
 
 @app.route('/custom/simple',methods=["POST"])
 def simple_pt():
@@ -87,22 +87,27 @@ def complex_pt():
 def default4_patterns():
     ta = float(request.form['num1'])
     j = float(request.form['num2'])
+    units = str(request.form['units'])
     c_l=[[] for i in range(4)]
     if(ta*4>=j):
-        result="<b><h4>Chaturasram patterns with their Korvai(Mukthai) aksharas</b><h4><br><h6>Place the cursor on a paritcular pattern to get the detailed description about it.<br>Scroll down to view all results</h6><br>"
+        result="<b><h4>Chaturasram patterns with their Korvai(Mukthai) "+units+"</b><h4><br><h6>Place the cursor on a paritcular pattern to get the detailed description about it.<br>Scroll down to view all results</h6><br>"
         for i in range(1,101):
             c1=(24/23)*((((ta*4)*i)+j)/4)
             c2=(24/13)*((((ta*4)*i)+j)/4)
             c3=(24/19)*((((ta*4)*i)+j)/4)
             c4=(((ta*4)*i)+j)/3
+            if units == "Kriyas":
+                f = 0.25
+            else:
+                f=1
             if ((23*c1)/6-j)%ta==0 and c1-int(c1)==0:
-                c_l[2].append(str(" 1 2 3 pattern: "+str(c1)))
+                c_l[2].append(" 1 2 3 pattern: "+str(c1*f))
             if ((13*c2)/6-j)%ta==0 and c2-int(c2)==0:
-                c_l[1].append(" 1 1 1 pattern: "+str(c2))
+                c_l[1].append(" 1 1 1 pattern: "+str(c2*f))
             if ((19*c3)/6-j)%ta==0 and c3-int(c3)==0:
-                c_l[3].append(" 1 1 3 pattern: "+str(c3))
+                c_l[3].append(" 1 1 3 pattern: "+str(c3*f))
             if c4-int(c4)==0 and c4>j:
-                c_l[0].append(" 3 times chaturasram: "+str(c4))
+                c_l[0].append(" 3 times chaturasram: "+str(c4*f))
     else:
         result="Jaga is exceeding the avruthaksharas!!!"
     if not any(c_l) and ta*4>=j:
@@ -124,6 +129,7 @@ def default4_patterns():
 def default3_patterns():
     ta = float(request.form['num1'])
     j = float(request.form['num2'])
+    units = str(request.form['units'])
     t_l=[[] for i in range(3)]
     if(ta*4>=j):
         result="<h3><b>Trisram patterns with their Korvai(Mukthai) aksharas</h3></b><br><br><h6>Place the cursor on a paritcular pattern to get the detailed description about it.<br>Scroll down to view all results</h6><br>"
@@ -131,12 +137,16 @@ def default3_patterns():
             t1=(18*(ta*4*i+j)/4)/23
             t2=(18*(ta*4*i+j)/4)/13
             t3=(18*(ta*4*i+j)/4)/19
+            if units == "Kriyas":
+                f = 0.25
+            else:
+                f=1
             if ((46*t1)/9-j)%ta==0 and t1-int(t1)==0:
-                t_l[1].append(str(" 1 2 3 pattern:"+str(t1)))
+                t_l[1].append(str(" 1 2 3 pattern:"+str(t1*f)))
             if ((26*t2)/9-j)%ta==0 and t2-int(t2)==0:
-                t_l[0].append(" 1 1 1 pattern: "+str(t2))
+                t_l[0].append(" 1 1 1 pattern: "+str(t2*f))
             if ((38*t3)/9-j)%ta==0 and t3-int(t3)==0:
-                t_l[2].append(" 1 1 3 pattern: "+str(t3))
+                t_l[2].append(" 1 1 3 pattern: "+str(t3*f))
     else:
         result="Jaga is exceeding the avruthaksharas!!!"
     if not any(t_l) and ta*4>=j:
@@ -156,6 +166,7 @@ def default3_patterns():
 def default5_patterns():
     ta = float(request.form['num1'])
     j = float(request.form['num2'])
+    units = str(request.form['units'])
     k_l=[[] for i in range(3)]
     if(ta*4>=j):
         result="<h3><b>Khandam patterns with their Korvai(Mukthai) aksharas</b></h3><br><br><p>Place the cursor on a paritcular pattern to get the detailed description about it.<br>Scroll down to view all results</p><br>"
@@ -163,12 +174,16 @@ def default5_patterns():
             k1=(5*(ta*4*i+j)/4)/6
             k2=(ta*4*i+j)/4
             k3=(15*(ta*4*i+j)/4)/11
+            if units == "Kriyas":
+                f = 0.25
+            else:
+                f=1
             if ((24*k1)/5-j)%ta==0 and k1-int(k1)==0 and k1%5==0:
-                k_l[1].append(str(" 1 2 3 pattern:"+str(k1)))
+                k_l[1].append(str(" 1 2 3 pattern:"+str(k1*f)))
             if ((4*k2)-j)%ta==0 and k2-int(k2)==0 and k2%5==0:
-                k_l[2].append(" khandam 3 3 or 1 1 3 pattern: "+str(k2))
+                k_l[2].append(" khandam 3 3 or 1 1 3 pattern: "+str(k2*f))
             if ((44*k3)/15-j)%ta==0 and k3-int(k3)==0 and k3%5==0:
-                k_l[0].append(" 1 1 1 pattern: "+str(k3))
+                k_l[0].append(" 1 1 1 pattern: "+str(k3*f))
     else:
         result="Edupu(Jaga) is exceeding the avruthaksharas!!!"
     if not any(k_l) and ta*4>=j:
@@ -187,6 +202,7 @@ def default5_patterns():
 def default7_patterns():
     ta = float(request.form['num1'])
     j = float(request.form['num2'])
+    units = str(request.form['units'])
     m_l=[[] for i in range(3)]
     if(ta*4>=j):
         result="<h3><b>Misram patterns with their Korvai(Mukthai) aksharas</b></h3><br><br><h6>Place the cursor on a paritcular pattern to get the detailed description about it.<br>Scroll down to view all results</h6><br>"
@@ -194,12 +210,16 @@ def default7_patterns():
             m1=(7*(ta*4*i+j)/4)/6
             m2=(7*(ta*4*i+j)/4)/5
             m3=(21*(ta*4*i+j)/4)/11
+            if units == "Kriyas":
+                f = 0.25
+            else:
+                f=1
             if ((24*m1)/7-j)%ta==0 and m1-int(m1)==0 and m1%7==0:
-                m_l[1].append(str(" 1 2 3 pattern:"+str(m1)))
+                m_l[1].append(str(" 1 2 3 pattern:"+str(m1*f)))
             if ((20*m2)/7-j)%ta==0 and m2-int(m2)==0 and m2%7==0:
-                m_l[2].append(" misram 3 3 pattern or 1 1 3 pattern: "+str(m2))
+                m_l[2].append(" misram 3 3 pattern or 1 1 3 pattern: "+str(m2*f))
             if ((44*m3)/21-j)%ta==0 and m3-int(m3)==0 and m3%7==0:
-                m_l[0].append(" 1 1 1 pattern: "+str(m3))
+                m_l[0].append(" 1 1 1 pattern: "+str(m3*f))
     else:
         result="Edupu(Jaga) is exceeding the avruthaksharas!!!"
     if not any(m_l) and ta*4>=j:
@@ -218,16 +238,21 @@ def default7_patterns():
 def default23_pattern():
     ta = float(request.form['num1'])
     j = float(request.form['num2'])
+    units = str(request.form['units'])
     tc_l=[[] for i in range(2)]
     if(ta*4>=j):
         result="<h3><b>2 times trisram 1 time chaturasram with their Korvai(Mukthai) aksharas</b></h3><br><br><h6>Place the cursor on a paritcular pattern to get the detailed description about it.<br>Scroll down to view all results</h6><br>"
         for i in range(1,101):
             tc1=(12*(ta*4*i+j)/4)/7
             tc2=(24*(ta*4*i+j)/4)/11
+            if units == "Kriyas":
+                f = 0.25
+            else:
+                f=1
             if ((7*tc1)/3-j)%ta==0 and tc1-int(tc1)==0:
-                tc_l[0].append("2 trisram(6) and 1 chaturasram : "+ str(tc1))
+                tc_l[0].append("2 trisram(6) and 1 chaturasram : "+ str(tc1*f))
             if ((11*tc2)/6-j)%ta==0 and tc2-int(tc2)==0:
-                tc_l[1].append("2 trisram(6) and 1 chaturasram(8) : "+ str(tc2))
+                tc_l[1].append("2 trisram(6) and 1 chaturasram(8) : "+ str(tc2*f))
     else:
         result="Edupu(Jaga) is exceeding the avruthaksharas!!!"
     if not any(tc_l) and ta*4>=j:
@@ -235,9 +260,9 @@ def default23_pattern():
     else:
         for i in range(2):
             if i==0:
-                result+="<br><div class='gist' title=' 2 times trisram 2nd speed(6) and 1 time chaturasram(4) '>"+"<br>".join(tc_l[i])+"</div>"
+                result+="<br><div class='gist' title=' 2 times trisram 2nd speed(6) and 1 time chaturasram(4) '>"+"<br>".join(tc_l[i]*f)+"</div>"
             else:
-                result+="<br><div class='gist' title=' 2 times trisram 2nd speed(6) and 1 time chaturasram 2nd speed(8) '>"+"<br>".join(tc_l[i])+"</div>"
+                result+="<br><div class='gist' title=' 2 times trisram 2nd speed(6) and 1 time chaturasram 2nd speed(8) '>"+"<br>".join(tc_l[i]*f)+"</div>"
     return render_template("result.html",result = Markup("<h4>"+result+"</h4>"))
 
 @app.route('/custom/simple/patterns',methods=['POST'])
@@ -245,6 +270,7 @@ def simple():
     p=str(request.form['pt'])
     ta = float(request.form['num1'])
     j = float(request.form['num2'])
+    units = str(request.form['units'])
     if(ta*4>=j):
         l=[float(k) for i in p.split('-') for k in i.split(',')]
         result="<h3><b>Custom pattern results</b></h3>"
@@ -256,6 +282,10 @@ def simple():
         s_l=[]
         for i in range(200):
             p1=(y*(ta*4*i+j)/4)/x
+            if units == "Kriyas":
+                f = 0.25
+            else:
+                f=1
             if ((4*x*p1/y)-j)%ta==0 and p1-int(p1)==0 and p1>10 and p1%lcm(l)==0:
                 s_l.append("Korvai(Mukthai) aksharas for the above pattern:"+str(p1))
     else:
@@ -271,7 +301,12 @@ def complex():
     p=str(request.form['pt'])
     ta = float(request.form['num1'])
     j = float(request.form['num2'])
+    units = str(request.form['units'])
     cmp_l=[]
+    if units == "Kriyas":
+        f = 0.25
+    else:
+        f=1
     if ta*4>=j:
         a0=p.split('-')
         a1=[float(k.split('*')[0]) for i in a0 for k in i.split(',')]
@@ -310,7 +345,7 @@ def complex():
         result+= "There is no possibility of making a Korvai(Mukthai) of this pattern.You can check with another pattern."
     else:
         for k,v in c_r.items():
-            cmp_l.append("Korvai(Mukthai) aksharas for purvangam and uttarangam: "+str(k)+" [ "+str(v)+" ] ")
+            cmp_l.append("Korvai(Mukthai) aksharas for purvangam and uttarangam: "+str(k*f)+" [ "+str(v*f)+" ] ")
         result+="<br>".join(cmp_l)
     return render_template("result.html",result = Markup("<h4>"+result+"</h4>"))
 

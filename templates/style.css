@@ -1,0 +1,29 @@
+.body {
+    padding: 40px 100px;
+    background-color: #252323;
+    font-size: 28px;
+}
+.input[type="number"]{
+  font-size: inherit;
+}
+.select[name="units"]{
+  font-size: inherit;
+}
+.div[class="form-group"]{
+  background-color: #252323;
+}
+.label{
+  color:#fff
+}
+.btn-success{
+  padding: 18px 45px;
+  font-size: 20px;
+}
+.btn-danger{
+  padding: 18px 45px;
+  font-size: 20px;
+}
+sform {
+    max-width: 400px;
+    margin: 0 auto;
+}

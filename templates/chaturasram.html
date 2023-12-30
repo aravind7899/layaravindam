@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
     <title>Main page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body>
+  <body style="font-size:28px;">
     <style>
     body {
         padding: 40px 100px;
         background-color: #252323;
         color: #fff;
-        font-size: 28px;
     }
-    input[type="number"]{
+    input[type="number"],input[type="text"]{
       font-size: inherit;
     }
     .btn-success{
@@ -26,8 +25,7 @@
       padding: 18px 45px;
       font-size: 20px;
     }
-
-      form {
+    form {
         max-width: 400px;
         margin: 0 auto;
     }
@@ -44,8 +42,15 @@
           <input type="number" name="num2" step="0.01" class="form-control" id="usr" required tabIndex="2">
         </div>
         <div class="form-group">
+          <label for="units">Enter Unit:</label><br>
+          <select id="units" name="units" style="color: #252325">
+            <option value="Aksharas" selected>Aksharas</option>
+            <option value="Kriyas">Kriyas</option>
+          </select>
+        </div>
+        <div class="form-group">
           <button class="btn btn-success" tabIndex="5"> Submit</button>
-          <a href="{{ url_for('default_htm') }}" class="btn btn-danger" tabIndex="3"> Back </a>
+          <a href="{{ url_for('default_htm') }}" class="btn btn-danger" tabIndex="5"> Back </a>
         </div>
       </form>
 
