@@ -21,6 +21,16 @@
         margin: 0 auto;
     }
 
+    div:hover:before{
+      position: absolute;
+      left: 350px;
+      content: attr(title);
+      font-size: 20px;
+      margin:2px;
+      color:blue;
+      border-style: hidden;
+    }
+
     </style>
     <div id="btn-container" class="container">
         <div class="form-group">
@@ -57,17 +67,22 @@
           <option value="Kriyas">Kriyas</option>
         </select>
       </div>
-      <div class="form-group">
+      <div id="default-patterns" class="form-group">
         <button class="btn btn-success" tabIndex="5"> Submit</button>
         <a href="{{ url_for('default_htm') }}" class="btn btn-danger" tabIndex="5"> Back </a>
       </div>
       </form>
     </div>
 
+    <div id="result-container" class="container" style="display: none;zoom: 170%">
+      <div id="results">{{ result }}</div>
+    </div>
+
     <script type="text/javascript">
     function navigateToForm(action) {
             document.getElementById('btn-container').style.display = 'none';
             document.getElementById('form-container').style.display = 'block';
+            document.getElementById('result-container').style.display = 'none';
             document.getElementById('default').action = action + '/patterns';
         }
 
@@ -82,11 +97,11 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                alert(data);
-                form.reset();
-                document.getElementById('btn-container').style.display = 'block';
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById('results').innerHTML = html;
+                document.getElementById('btn-container').style.display = 'none';
+                document.getElementById('result-container').style.display = 'block';
                 document.getElementById('form-container').style.display = 'none';
             })
             .catch(error => {

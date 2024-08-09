@@ -123,7 +123,7 @@ def default4_patterns():
                 result+="<br><div class='gist' title=' This pattern is 1 time chaturasram(4) 2 times trisram 2nd speed(6) 3 times chaturasram 2nd speed(8) '>"+"<br>".join(c_l[i])+"</div>"
             else:
                 result+="<br><div class='gist' title=' This pattern is 1 time chaturasram(4) 1 time trisram 2nd speed(6) 3 times chaturasram 2nd speed(8) '>"+"<br>".join(c_l[i])+"</div>"
-    return render_template("result.html",result = Markup("<h4>"+result+"</h4>"))
+    return "<h4>"+result+"</h4>"
 
 @app.route('/default/trisram/patterns', methods=['POST'])
 def default3_patterns():
@@ -196,7 +196,7 @@ def default5_patterns():
                 result+="<br><div class='gist' title=' This pattern is 1 time khandam slow speed(5 letters in 2 beats) 2 times khandam(5) 3 times khandatrisram(15 letters in 2 beats) '>"+"<br>".join(k_l[i])+"</div>"
             else:
                 result+="<br><div class='gist' title=' This pattern is 1 time khandam slow speed(5 letters in 2 beats) 1 time khandam(5) 3 times khandatrisram(15 letters in 2 beats) or 3 times khandam(5) 3 times khandatrisram(15 letters in 2 beats) '>"+"<br>".join(k_l[i])+"</div>"
-    return render_template("result.html",result = Markup("<h4>"+result+"</h4>"))
+    return result
 
 @app.route('/default/misram/patterns', methods=['POST'])
 def default7_patterns():
