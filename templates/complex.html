@@ -7,12 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="font-size:28px;">
+  <body>
     <style>
     body {
         padding: 40px 100px;
         background-color: #252323;
         color: #fff;
+        font-size: 24px;
     }
     input[type="number"],input[type="text"]{
       font-size: inherit;
@@ -32,8 +33,8 @@
 
     </style>
       These patterns can be defined as of below examples(Each part is seperated by '-',each part purvangam and uttarangam are seperated by '*')
-      <br><br>Example 1: <br> 1 time chaturasram 1 time trisram 2nd speed(6) 1 time chaturasram 2nd speed(8),the pattern is 4*4-6*6-8*8
-      <br><br>Example 2: <br> 1 time trisram 2 times chatusram 3 times khandam ,the pattern is 3*3-4*4,4*4-5*5,5*5,5*5<br><br>
+      <br><b>Example 1: </b> 1 time chaturasram 1 time trisram 2nd speed(6) 1 time chaturasram 2nd speed(8),the pattern is 4*4-6*6-8*8
+      <br><b>Example 2: </b> 1 time trisram 2 times chatusram 3 times khandam ,the pattern is 3*3-4*4,4*4-5*5,5*5,5*5<br><br>
     <div class="container">
       <form method="POST" action="complex/patterns">
         <div class="form-group">
@@ -43,6 +44,16 @@
         <div class="form-group">
           <label for="num">Tala avrutha kriyas:</label>
           <input type="number" name="num1" step="0.01" class="form-control" id="num" required tabIndex="1" autofocus>
+        </div>
+        <div id="default-patterns" class="form-group">
+          <label for="gathi">Select Gathi:</label><br>
+          <select id="gathi" name="gathi" style="color: #252325">
+            <option value="Chaturasram" selected>Chaturasram</option>
+            <option value="Trisram">Trisram</option>
+            <option value="=Misram">Misram</option>
+            <option value="Khandam">Khandam</option>
+            <option value="Sankeernam">Sankeernam</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="num">Edupu(Jaga) aksharas:</label>
