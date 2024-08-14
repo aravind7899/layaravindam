@@ -9,32 +9,76 @@
   </head>
   <body>
     <style>
-    body {
-        padding: 40px 100px;
-        background-color: #252323;
-        color: #fff;
-        font-size: 24px;
-    }
-    input[type="number"],input[type="text"]{
-      font-size: inherit;
-    }
-    .btn-success{
-      padding: 18px 45px;
-      font-size: 20px;
-    }
-    .btn-danger{
-      padding: 18px 45px;
-      font-size: 20px;
-    }
-    form {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
+      body {
+            padding: 40px 100px;
+            background-color: #252323;
+            color: #fff;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group label {
+            color: #bbb;
+            font-size: 20px;
+        }
+        
+        .form-control {
+            font-size: inherit;
+            background-color: #495057;
+            border: none;
+            color: #fff;
+        }
+        
+        .form-control:focus {
+            background-color: #495057;
+            border-color: #6c757d;
+            box-shadow: none;
+        }
+        
+        select.form-control {
+            background-color: #495057;
+            color: #fff;
+        }
+        
+        .btn-success {
+            padding: 18px 45px;
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        
+        .btn-danger {
+            padding: 18px 45px;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+    
+        input[type="number"],input[type="text"]{
+          font-size: inherit;
+        }
+        
+        td {
+          padding: 0 15px;
+        }
     </style>
-      These patterns can be defined as of below examples(Each part is seperated by '-',each part purvangam and uttarangam are seperated by '*')
+      <p style="font-size: 20px">These patterns can be defined as of below examples(Each part is seperated by '-',each part purvangam and uttarangam are seperated by '*')
       <br><b>Example 1: </b> 1 time chaturasram 1 time trisram 2nd speed(6) 1 time chaturasram 2nd speed(8),the pattern is 4*4-6*6-8*8
-      <br><b>Example 2: </b> 1 time trisram 2 times chatusram 3 times khandam ,the pattern is 3*3-4*4,4*4-5*5,5*5,5*5<br><br>
+      <br><b>Example 2: </b> 1 time trisram 2 times chatusram 3 times khandam ,the pattern is 3*3-4*4,4*4-5*5,5*5,5*5<br><br></p>
     <div class="container">
       <form method="POST" action="complex/patterns">
         <div class="form-group">
@@ -70,10 +114,36 @@
           <button class="btn btn-success" tabIndex="5"> Submit</button>
           <a href="{{ url_for('custom_htm') }}" class="btn btn-danger" tabIndex="5"> Back </a>
         </div>
+        <div id="note-section" class="form-group">
+          Note: For Nadai change, the calculation will be different.
+          <a href="#" id="toggle-table-link">Show details</a>
+        </div>
+        <div id="table-section" style="display: none;">
+          <br><b>Example :</b> trisra nadai chaturasra jathi triputa talam will have 8 x 1.5 = 12 Avrutha kriya.
+          <br>
+          <br>Please refer to the below:
+          <table class="Nadai">
+            <tr><td>Trisram</td><td> - </td><td>1.5</td></tr>
+            <tr><td>Misram</td><td> - </td><td>3.5</td></tr>
+            <tr><td>Khandam</td><td> - </td><td>2.5</td></tr>
+            <tr><td>Sankeernam</td><td> - </td><td>4.5</td></tr>
+          </table>
+        </div>
       </form>
 
     <script type="text/javascript">
-    $(document).on('keypress', 'input,select', function (e) {
+     document.getElementById('toggle-table-link').addEventListener('click', function(event) {
+        const tableSection = document.getElementById('table-section');
+        if (tableSection.style.display === 'none' || tableSection.style.display === '') {
+            tableSection.style.display = 'block'; // Show the table and text
+            this.textContent = 'Hide details'; // Update the link text
+        } else {
+            tableSection.style.display = 'none'; // Hide the table and text
+            this.textContent = 'Show details'; // Revert the link text
+        }
+     });
+
+     $(document).on('keypress', 'input,select', function (e) {
         if (e.which == 13) {
             var $next = $('[tabIndex=' + (+this.tabIndex + 1) + ']');
             console.log($next.length);
@@ -81,7 +151,7 @@
            $next = $('[tabIndex=1]');        }
             $next.focus() .click();
         }
-    });
+     });
     </script>
     </div>
   </body>

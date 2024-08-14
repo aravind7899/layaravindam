@@ -8,16 +8,34 @@
   </head>
   <body align="center">
     <style>
+      .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
 
-    html, body {
-    background-color: #252323;
-    color: #fff;
-    }
+        iframe {
+            border: none;
+        }
+
+        html, body {
+          background-color: #252323;
+          color: #fff;
+        }
+
+
 
     </style>
 
       <iframe src="{{ url_for('nav') }}" name="frame1" height='10%' width='100%' frameborder='no'></iframe>
       <iframe src="{{ url_for('home') }}" name="frame2" height='90%' width='100%' frameborder='no' ></iframe>
+      iframe[name="frame1"] {
+        height: 10%;
+        width: 100%;
+    }
 
     <script type="text/javascript">
     $(document).on('keypress', 'input,select', function (e) {
